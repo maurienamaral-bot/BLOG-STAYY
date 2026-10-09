@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Stay | Curiosidades e Impacto do Stray Kids no K-pop</title>
+	<style>
+    	* {
+        	margin: 0;
+        	padding: 0;
+        	box-sizing: border-box;
+    	}
+
+    	body {
+        	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        	background-color: #1a0b2e;
+        	color: #e8d5f5;
+        	line-height: 1.7;
+    	}
+
+    	header {
+        	background: linear-gradient(135deg, #2d1b4e, #4a2c7a);
+        	padding: 40px 20px;
+        	text-align: center;
+        	border-bottom: 4px solid #c77dff;
+    	}
+
+    	header h1 {
+        	font-size: 3.2rem;
+        	color: #fff;
+        	margin-bottom: 10px;
+        	letter-spacing: 4px;
+        	text-transform: uppercase;
+        	font-weight: 800;
+        	text-shadow: 0 0 15px rgba(199, 125, 255, 0.6);
+    	}
+
+    	header p {
+        	color: #c77dff;
+        	font-size: 1.2rem;
+        	font-weight: 500;
+    	}
+
+    	.header-photo {
+        	margin-top: 25px;
+        	max-width: 100%;
+    	}
+
+    	.header-photo img {
+        	width: 100%;
+        	max-width: 850px;
+        	height: auto;
+        	border-radius: 16px;
+        	border: 3px solid #c77dff;
+        	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        	object-fit: cover;
+    	}
+
+    	nav {
+        	background-color: #2d1b4e;
+        	padding: 14px 0;
+        	text-align: center;
+        	position: sticky;
+        	top: 0;
+        	z-index: 100;
+        	border-bottom: 1px solid #5a3d8a;
+    	}
+
+    	nav a {
+        	color: #e8d5f5;
+        	text-decoration: none;
+        	margin: 0 14px;
+        	font-weight: 500;
+        	transition: color 0.3s;
+        	font-size: 0.95rem;
+    	}
+
+    	nav a:hover {
+        	color: #c77dff;
+    	}
+
+    	main {
+        	max-width: 900px;
+        	margin: 40px auto;
+        	padding: 0 20px;
+    	}
+
+    	article {
+        	background-color: #2d1b4e;
+        	border-radius: 14px;
+        	padding: 35px;
+        	margin-bottom: 40px;
+        	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        	border: 1px solid #4a2c7a;
+    	}
+
+    	article h2 {
+        	color: #c77dff;
+        	font-size: 1.85rem;
+        	margin-bottom: 15px;
+        	border-bottom: 2px solid #c77dff;
+        	padding-bottom: 8px;
+    	}
+
+    	article h3 {
+        	color: #fff;
+        	margin: 28px 0 12px;
+        	font-size: 1.3rem;
+    	}
+
+    	.autor {
+        	color: #b39ddb;
+        	font-size: 0.95rem;
+        	margin-bottom: 20px;
+        	font-style: italic;
+    	}
+
+    	p {
+        	margin-bottom: 16px;
+    	}
+
+    	ul {
+        	margin: 15px 0 20px 25px;
+    	}
+
+    	ul li {
+        	margin-bottom: 10px;
+    	}
+
+    	.destaque {
+        	background-color: #3d2663;
+        	border-left: 5px solid #c77dff;
+        	padding: 16px 22px;
+        	margin: 22px 0;
+        	border-radius: 0 10px 10px 0;
+    	}
+
+    	/* Estilo para os membros */
+    	.membros-grid {
+        	display: grid;
+        	grid-template-columns: 1fr;
+        	gap: 22px;
+        	margin: 25px 0;
+    	}
+
+    	.membro-card {
+        	display: flex;
+        	align-items: center;
+        	gap: 20px;
+        	background-color: #3d2663;
+        	border-radius: 12px;
+        	padding: 16px 20px;
+        	border: 1px solid #5a3d8a;
+        	transition: transform 0.2s, box-shadow 0.2s;
+    	}
+
+    	.membro-card:hover {
+        	transform: translateY(-3px);
+        	box-shadow: 0 6px 18px rgba(199, 125, 255, 0.25);
+    	}
+
+    	.membro-card img {
+        	width: 110px;
+        	height: 110px;
+        	border-radius: 50%;
+        	object-fit: cover;
+        	border: 3px solid #c77dff;
+        	flex-shrink: 0;
+        	background-color: #2d1b4e;
+    	}
+
+    	.membro-info strong {
+        	color: #c77dff;
+        	font-size: 1.15rem;
+    	}
+
+    	.membro-info span {
+        	display: block;
+        	color: #e8d5f5;
+        	font-size: 0.95rem;
+        	margin-top: 4px;
+    	}
+
+    	/* SKZOO */
+    	.skzoo-grid {
+        	display: grid;
+        	grid-template-columns: 1fr;
+        	gap: 18px;
+        	margin: 25px 0;
+    	}
+
+    	.skzoo-card {
+        	display: flex;
+        	align-items: center;
+        	gap: 18px;
+        	background-color: #3d2663;
+        	border-radius: 12px;
+        	padding: 14px 18px;
+        	border: 1px solid #5a3d8a;
+    	}
+
+    	.skzoo-emoji {
+        	font-size: 2.8rem;
+        	width: 70px;
+        	text-align: center;
+        	flex-shrink: 0;
+    	}
+
+    	.skzoo-info strong {
+        	color: #c77dff;
+        	font-size: 1.1rem;
+    	}
+
+    	.skzoo-info span {
+        	display: block;
+        	color: #e8d5f5;
+        	font-size: 0.95rem;
+        	margin-top: 3px;
+    	}
+
+    	footer {
+        	background-color: #2d1b4e;
+        	text-align: center;
+        	padding: 28px;
+        	margin-top: 50px;
+        	color: #b39ddb;
+        	font-size: 0.95rem;
+        	border-top: 3px solid #c77dff;
+    	}
+
+    	footer a {
+        	color: #c77dff;
+        	text-decoration: none;
+    	}
+
+    	/* Responsivo */
+    	@media (max-width: 600px) {
+        	header h1 {
+            	font-size: 2.2rem;
+            	letter-spacing: 2px;
+        	}
+
+        	.membro-card, .skzoo-card {
+            	flex-direction: column;
+            	text-align: center;
+        	}
+
+        	nav a {
+            	margin: 0 8px;
+            	font-size: 0.85rem;
+        	}
+    	}
+	</style>
+</head>
+<body>
+
+	<header>
+    	<h1>BLOG STAY</h1>
+    	<p>Curiosidades e o impacto do Stray Kids no mundo do K-pop</p>
+   	 
+    	<!-- Foto de grupo no topo (substitua o src pela foto de alta qualidade que você tiver direito de usar) -->
+    	<div class="header-photo">
+        	<img src="https://via.placeholder.com/850x450/4a2c7a/c77dff?text=Stray+Kids+-+Foto+de+Grupo+(substitua+por+imagem+oficial)"
+             	alt="Stray Kids - Foto de grupo oficial">
+    	</div>
+	</header>
+
+	<nav>
+    	<a href="#inicio">Início</a>
+    	<a href="#sobre">Sobre o grupo</a>
+    	<a href="#curiosidades">Curiosidades</a>
+    	<a href="#albuns">Álbuns recentes</a>
+    	<a href="#skzoo">SKZOO</a>
+    	<a href="#impacto">Impacto no K-pop</a>
+	</nav>
+
+	<main>
+    	<!-- POST PRINCIPAL -->
+    	<article id="inicio">
+        	<h2>Meu primeiro post</h2>
+        	<p class="autor">Por: Maurien Gabriéla Rey do Amaral</p>
+
+        	<p>Boas-vindas ao <strong>Blog Stay</strong>! Este espaço foi criado para compartilhar tudo sobre o <strong>Stray Kids</strong> — um dos grupos mais autênticos, talentosos e influentes da quarta geração do K-pop.</p>
+
+        	<p>Aqui você vai encontrar a história do grupo, curiosidades, fatos interessantes e uma análise sobre como o Stray Kids tem transformado a indústria musical coreana e global. Venha conhecer!</p>
+    	</article>
+
+    	<!-- SOBRE O GRUPO -->
+    	<article id="sobre">
+        	<h2>Sobre o Stray Kids</h2>
+
+        	<p>O <strong>Stray Kids</strong> (스트레이 키즈) é um grupo masculino sul-coreano formado pela JYP Entertainment em 2017 através de um reality show de mesmo nome. O grupo estreou oficialmente em <strong>25 de março de 2018</strong> com o mini-álbum <em>I am NOT</em> e a música-título “District 9”.</p>
+
+        	<p>Atualmente o grupo é formado por <strong>8 membros</strong>:</p>
+
+        	<div class="membros-grid">
+            	<!-- Bang Chan -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Bang+Chan" alt="Bang Chan">
+                	<div class="membro-info">
+                    	<strong>Bang Chan</strong>
+                    	<span>Líder, vocalista, rapper, produtor</span>
+                	</div>
+            	</div>
+
+            	<!-- Lee Know -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Lee+Know" alt="Lee Know">
+                	<div class="membro-info">
+                    	<strong>Lee Know</strong>
+                    	<span>Dançarino principal, vocalista</span>
+                	</div>
+            	</div>
+
+            	<!-- Changbin -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Changbin" alt="Changbin">
+                	<div class="membro-info">
+                    	<strong>Changbin</strong>
+                    	<span>Rapper principal</span>
+                	</div>
+            	</div>
+
+            	<!-- Hyunjin -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Hyunjin" alt="Hyunjin">
+                	<div class="membro-info">
+                    	<strong>Hyunjin</strong>
+                    	<span>Dançarino principal, rapper, visual</span>
+                	</div>
+            	</div>
+
+            	<!-- Han -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Han+Jisung" alt="Han Jisung">
+                	<div class="membro-info">
+                    	<strong>Han (Jisung)</strong>
+                    	<span>Rapper, vocalista, compositor</span>
+                	</div>
+            	</div>
+
+            	<!-- Felix -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Felix" alt="Felix">
+                	<div class="membro-info">
+                    	<strong>Felix</strong>
+                    	<span>Dançarino, rapper – voz grave icônica</span>
+                	</div>
+            	</div>
+
+            	<!-- Seungmin -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=Seungmin" alt="Seungmin">
+                	<div class="membro-info">
+                    	<strong>Seungmin</strong>
+                    	<span>Vocalista principal</span>
+                	</div>
+            	</div>
+
+            	<!-- I.N -->
+            	<div class="membro-card">
+                	<img src="https://via.placeholder.com/220x220/3d2663/c77dff?text=I.N" alt="I.N">
+                	<div class="membro-info">
+                    	<strong>I.N</strong>
+                    	<span>Maknae, vocalista</span>
+                	</div>
+            	</div>
+        	</div>
+
+        	<p>O grupo estreou originalmente com 9 membros. Em outubro de 2019, o membro <strong>Woojin</strong> deixou o grupo por motivos pessoais. Desde então, o Stray Kids continua como um grupo de 8.</p>
+
+        	<div class="destaque">
+            	<strong>Fato importante:</strong> O fandom se chama <strong>STAY</strong>, porque os fãs “ficam” (stay) com o grupo, não importa o que aconteça. O nome também representa a ideia de que os STAYs e o Stray Kids caminham juntos.
+        	</div>
+    	</article>
+
+    	<!-- CURIOSIDADES -->
+    	<article id="curiosidades">
+        	<h2>Curiosidades sobre o Stray Kids</h2>
+
+        	<h3>1. Eles são autoproduzidos</h3>
+        	<p>Uma das maiores marcas do Stray Kids é a autoprodução. Os membros, especialmente o <strong>3RACHA</strong> (Bang Chan, Changbin e Han), escrevem e produzem a maior parte das músicas do grupo desde antes da estreia. Isso é raro na indústria do K-pop e se tornou uma das identidades mais fortes do grupo.</p>
+
+        	<h3>2. O nome “Stray Kids”</h3>
+        	<p>O nome significa “crianças desgarradas” ou “crianças que se perderam”. Representa a ideia de jovens que encontraram o próprio caminho, fora dos padrões da indústria, e que não têm medo de ser diferentes.</p>
+
+        	<h3>3. Eliminações no reality show</h3>
+        	<p>Durante o reality de formação, tanto <strong>Lee Know</strong> quanto <strong>Felix</strong> foram eliminados em momentos diferentes. No último episódio, JYP decidiu trazer os dois de volta, formando o grupo oficial com todos os membros escolhidos por Bang Chan. Esse momento emocionou muitos fãs e reforçou a união do grupo.</p>
+
+        	<h3>4. Membros australianos</h3>
+        	<p>Dois membros nasceram na Austrália: <strong>Bang Chan</strong> (Sydney) e <strong>Felix</strong> (Sydney). Por isso, o grupo tem muita facilidade com o inglês e uma conexão especial com fãs internacionais.</p>
+
+        	<h3>5. Personalidades marcantes</h3>
+        	<ul>
+            	<li><strong>Bang Chan</strong> – líder, produtor e “pai” do grupo</li>
+            	<li><strong>Lee Know</strong> – dançarino excepcional e amante de gatos</li>
+            	<li><strong>Changbin</strong> – rapper poderoso com personalidade fofa</li>
+            	<li><strong>Hyunjin</strong> – visual marcante, dançarino e artista plástico</li>
+            	<li><strong>Han</strong> – multi-talentoso (rap, vocal e composição)</li>
+            	<li><strong>Felix</strong> – voz grave inconfundível e personalidade solar</li>
+            	<li><strong>Seungmin</strong> – vocal estável e rei dos memes</li>
+            	<li><strong>I.N</strong> – maknae (o mais novo) com voz doce e crescimento constante</li>
+        	</ul>
+
+        	<h3>6. Outras curiosidades</h3>
+        	<ul>
+            	<li>O grupo já alcançou o topo da Billboard 200 várias vezes com álbuns autoproduzidos.</li>
+            	<li>Eles são conhecidos por shows intensos e performances com muita energia.</li>
+            	<li>O 3RACHA tem um estilo de produção que mistura hip-hop, EDM, rock e elementos experimentais.</li>
+            	<li>Os membros têm uma relação muito próxima e costumam se chamar de “família”.</li>
+        	</ul>
+    	</article>
+
+    	<!-- ÁLBUNS RECENTES -->
+    	<article id="albuns">
+        	<h2>Álbuns recentes</h2>
+
+        	<h3>KARMA (2025)</h3>
+        	<p>O <strong>KARMA</strong> é o quarto álbum de estúdio em coreano do Stray Kids (sexto no total). Foi lançado em <strong>22 de agosto de 2025</strong> pela JYP Entertainment e Republic Records.</p>
+
+        	<p>O álbum traz a mensagem de que “o que você faz volta para você” — ou seja, fazer coisas boas gera coisas boas. A faixa-título é <strong>“CEREMONY”</strong>, uma música de celebração depois de superar adversidades, misturando trap EDM com ritmos de baile funk.</p>
+
+        	<p><strong>Tracklist principal do KARMA:</strong></p>
+        	<ul>
+            	<li>BLEEP (삐처리)</li>
+            	<li>CEREMONY (faixa-título)</li>
+            	<li>CREED</li>
+            	<li>MESS (엉망)</li>
+            	<li>In My Head</li>
+            	<li>Half Time (반전)</li>
+            	<li>Phoenix</li>
+            	<li>Ghost</li>
+            	<li>0801</li>
+            	<li>CEREMONY (Festival Version)</li>
+            	<li>CEREMONY (English Version)</li>
+        	</ul>
+
+        	<p>O álbum foi muito bem recebido e conquistou vários prêmios importantes, incluindo Album of the Year e Daesang em premiações de 2026.</p>
+
+        	<h3>THIS & THAT (2026) – Em lançamento</h3>
+        	<p>O <strong>THIS & THAT</strong> é o décimo mini-álbum do Stray Kids. Será lançado em <strong>7 de agosto de 2026</strong> às 13h (horário da Coreia).</p>
+
+        	<p>Antes do álbum completo, o grupo já lançou a pré-single <strong>“RUN IT”</strong> em junho de 2026. A faixa-título do álbum também se chama <strong>“This & That”</strong>.</p>
+
+        	<p><strong>Tracklist do THIS & THAT:</strong></p>
+        	<ul>
+            	<li>RUN IT</li>
+            	<li>This & That (faixa-título)</li>
+            	<li>After You</li>
+            	<li>FARMING</li>
+            	<li>I Do</li>
+            	<li>Way Out</li>
+            	<li>Back Then (그날)</li>
+            	<li>This & That (Festival ver.)</li>
+        	</ul>
+
+        	<div class="destaque">
+            	<strong>Em alta!</strong> O grupo está liberando teasers individuais e conteúdos especiais antes do lançamento. O pré-save e pré-order já estão disponíveis, e o álbum chega junto com a turnê “RUN IT”.
+        	</div>
+    	</article>
+
+    	<!-- SKZOO -->
+    	<article id="skzoo">
+        	<h2>SKZOO – Os mascotes oficiais do Stray Kids</h2>
+
+        	<p>Os <strong>SKZOO</strong> são os mascotes oficiais do Stray Kids. Criados em 2020 e lançados oficialmente em 2021, cada personagem é um animal (ou híbrido) que representa um dos oito membros do grupo. Eles aparecem em pelúcias, chaveiros, roupas, animações e vários produtos oficiais.</p>
+
+        	<p>O nome “SKZOO” vem da junção de <strong>SKZ</strong> (abreviação de Stray Kids) + <strong>Zoo</strong> (zoológico), porque todos os mascotes são animais. Cada um foi inspirado na aparência ou na personalidade do membro que representa.</p>
+
+        	<div class="skzoo-grid">
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐺</div>
+                	<div class="skzoo-info">
+                    	<strong>Wolf Chan</strong>
+                    	<span>Lobo → representa <strong>Bang Chan</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐰</div>
+                	<div class="skzoo-info">
+                    	<strong>Leebit</strong>
+                    	<span>Coelho → representa <strong>Lee Know</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐷🐰</div>
+                	<div class="skzoo-info">
+                    	<strong>Dwaekki</strong>
+                    	<span>Porco-coelho → representa <strong>Changbin</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🦦</div>
+                	<div class="skzoo-info">
+                    	<strong>Jiniret</strong>
+                    	<span>Furão → representa <strong>Hyunjin</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐹</div>
+                	<div class="skzoo-info">
+                    	<strong>Han Quokka</strong>
+                    	<span>Quokka → representa <strong>Han Jisung</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐥</div>
+                	<div class="skzoo-info">
+                    	<strong>BbokAri</strong>
+                    	<span>Pintinho → representa <strong>Felix</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🐶</div>
+                	<div class="skzoo-info">
+                    	<strong>PuppyM</strong>
+                    	<span>Cachorrinho → representa <strong>Seungmin</strong></span>
+                	</div>
+            	</div>
+
+            	<div class="skzoo-card">
+                	<div class="skzoo-emoji">🦊</div>
+                	<div class="skzoo-info">
+                    	<strong>FoxI.Ny</strong>
+                    	<span>Raposa → representa <strong>I.N</strong></span>
+                	</div>
+            	</div>
+        	</div>
+
+        	<div class="destaque">
+            	<strong>Curiosidade:</strong> Os SKZOO já ganharam versões animadas em clipes, dançaram coreografias oficiais e são muito queridos pelos STAYs. É comum ver fãs levando as pelúcias para shows e eventos!
+        	</div>
+    	</article>
+
+    	<!-- IMPACTO -->
+    	<article id="impacto">
+        	<h2>O impacto do Stray Kids no K-pop</h2>
+
+        	<p>O Stray Kids não é apenas mais um grupo de sucesso. Eles representam uma mudança importante na indústria do K-pop:</p>
+
+        	<h3>1. Autenticidade e autoria</h3>
+        	<p>Enquanto muitos grupos ainda dependem fortemente de produtores externos, o Stray Kids mostrou que é possível ter sucesso global escrevendo e produzindo a própria música. Isso inspirou outros artistas a buscarem mais controle criativo.</p>
+
+        	<h3>2. Conexão real com os fãs</h3>
+        	<p>Através de lives longas, conteúdos sinceros e a mensagem de “vocês não estão sozinhos”, o grupo criou uma relação muito próxima com o STAY. Isso fortaleceu a ideia de comunidade no fandom.</p>
+
+        	<h3>3. Sucesso internacional sem seguir fórmulas</h3>
+        	<p>Mesmo com um som mais experimental e letras que falam de ansiedade, pressão e identidade, o Stray Kids conquistou o topo de charts mundiais. Eles provaram que não é preciso suavizar a mensagem para alcançar o sucesso global.</p>
+
+        	<h3>4. Representatividade da nova geração</h3>
+        	<p>O grupo se tornou símbolo de uma geração que valoriza saúde mental, autenticidade e liberdade de expressão dentro do K-pop — temas que antes eram menos abordados de forma aberta.</p>
+
+        	<div class="destaque">
+            	<strong>Resumo:</strong> O Stray Kids não só faz sucesso — eles estão ajudando a redefinir o que significa ser um grupo de K-pop na década de 2020. Eles provaram que ser “diferente” pode ser exatamente o que o mundo precisa.
+        	</div>
+    	</article>
+	</main>
+
+	<footer>
+    	<p>Blog Stay © 2025 — Feito com ❤️ por Maurien Gabriéla Rey do Amaral</p>
+    	<p>Stray Kids e STAY forever</p>
+	</footer>
+
+</body>
+</html>
